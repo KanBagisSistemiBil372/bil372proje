@@ -223,7 +223,7 @@
             <input name="password" type="password" class="form-control" placeholder="Password"/>
             <div class="input-group-btn">
                 <button name="login" type="submit" class="btn btn-danger">Giris yap</button>
-                <button type="button" class="btn btn-danger btn-block">Uye ol</button>
+                <button onclick="window.location.href='/register'" type="button" class="btn btn-danger btn-block">Uye ol</button>
 
             </div>
         </div>
