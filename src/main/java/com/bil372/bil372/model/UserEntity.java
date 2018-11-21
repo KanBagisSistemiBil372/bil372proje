@@ -10,16 +10,39 @@ public class UserEntity {
     private String surname;
     private String phone;
     private String e_mail;
-    private String username;
     private String password;
     private String blood_type;
     private String user_type;
+    private PatientEntity patient_tc;
+    private DonorEntity donor_tc;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    public PatientEntity getPatient() {
+        return patient_tc;
+    }
+
+    public void setPatient(PatientEntity patient) {
+        this.patient_tc = patient;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    public DonorEntity getDonor_tc() {
+        return donor_tc;
+    }
+
+    public void setDonor_tc(DonorEntity donor_tc) {
+        this.donor_tc = donor_tc;
+    }
 
     @Id
     @Column(name = "tc_no", columnDefinition = "serial",  nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getTc_no() {
         return tc_no;
+    }
+
+    public void setTc_no(Long tc_no) {
+        this.tc_no = tc_no;
     }
 
     public String getName() {
@@ -54,14 +77,6 @@ public class UserEntity {
         this.e_mail = e_mail;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -86,8 +101,5 @@ public class UserEntity {
         this.user_type = user_type;
     }
 
-    public void setTc_no(Long tc_no) {
-        this.tc_no = tc_no;
-    }
 
 }

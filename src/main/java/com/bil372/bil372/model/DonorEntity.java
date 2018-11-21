@@ -1,21 +1,61 @@
 package com.bil372.bil372.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "donorentity")
-public class DonorEntity {
+public class DonorEntity implements Serializable {
 
-    private Long donor_tc;
+    private UserEntity userEntity;
+    private Set<BloodBankEntity> bloodBankEntities;
+    private Set<DonorLocationEntity> donorLocationEntities;
+    private Set<BloodDonationEntity> bloodDonationEntities;
 
     @Id
-    @Column(name = "donor_tc", columnDefinition = "serial", nullable=false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getTc_no() {
-        return donor_tc;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "donor_tc")
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setTc_no(Long donor_tc) {
-        this.donor_tc = donor_tc;
+    public void setUserEntity(UserEntity userEntity2) {
+        this.userEntity = userEntity2;
+    }
+
+    //Kan bankasinda bir donor_tc karsiliginda birden fazla kayit bulunabilir.
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "donor_tc")
+    public Set<BloodBankEntity> getBloodBankEntities() {
+        return bloodBankEntities;
+    }
+
+    public void setBloodBankEntities(Set<BloodBankEntity> bloodBankEntities) {
+        this.bloodBankEntities = bloodBankEntities;
+    }
+
+    //Konum belirten tabloda bir donor_tc karsiliginda birden fazla kayit bulunabilir.
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "donor_tc")
+
+    public Set<DonorLocationEntity> getDonorLocationEntities() {
+        return donorLocationEntities;
+    }
+
+    public void setDonorLocationEntities(Set<DonorLocationEntity> donorLocationEntities) {
+        this.donorLocationEntities = donorLocationEntities;
+    }
+
+    //Kan bagislama tablosunda bir donor_tc karsiliginda birden fazla kayit bulunabilir.
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "donor_tc")
+
+    public Set<BloodDonationEntity> getBloodDonationEntities() {
+        return bloodDonationEntities;
+    }
+
+    public void setBloodDonationEntities(Set<BloodDonationEntity> bloodDonationEntities) {
+        this.bloodDonationEntities = bloodDonationEntities;
     }
 }
