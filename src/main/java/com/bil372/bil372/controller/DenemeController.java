@@ -31,5 +31,4 @@ public class DenemeController {
     public String register(){return "register";}
 
 
-
 }
