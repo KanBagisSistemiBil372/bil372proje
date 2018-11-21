@@ -215,13 +215,16 @@
 </nav>
 
 <div class="jumbotron text-center">
-    <h1>Company</h1>
-    <p>We specialize in blablabla</p>
+    <h1>Giris Yap</h1>
+    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
     <form>
         <div class="input-group">
             <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
             <div class="input-group-btn">
-                <button type="button" class="btn btn-danger">Subscribe</button>
+                <button name="login" type="submit" class="btn btn-danger">Giris yap</button>
+                <button type="button" class="btn btn-danger btn-block">Uye ol</button>
+
             </div>
         </div>
     </form>
