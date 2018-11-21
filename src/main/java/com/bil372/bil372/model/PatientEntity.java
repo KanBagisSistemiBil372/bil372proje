@@ -1,25 +1,39 @@
 package com.bil372.bil372.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "patiententity")
-public class PatientEntity {
-    private Long patient_tc;
+public class PatientEntity implements Serializable {
+
     private String hospital_name;
     private String hospital_location;
     private Long amount_of_need;
+    private UserEntity userEntity;
+    private Set<BloodBankEntity> bloodBankEntities;
+    private Set<BloodDonationEntity> bloodDonationEntities;
 
     @Id
-    @Column(name = "patient_tc", columnDefinition = "serial", nullable=false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    public Long getPatient_tc() {
-        return patient_tc;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_tc")
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setPatient_tc(Long patient_tc) {
-        this.patient_tc = patient_tc;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_tc")
+    public Set<BloodBankEntity> getBloodBankEntities() {
+        return bloodBankEntities;
+    }
+
+    public void setBloodBankEntities(Set<BloodBankEntity> bloodBankEntities) {
+        this.bloodBankEntities = bloodBankEntities;
     }
 
     public String getHospital_name() {
@@ -44,5 +58,17 @@ public class PatientEntity {
 
     public void setAmount_of_need(Long amount_of_need) {
         this.amount_of_need = amount_of_need;
+    }
+
+    //Kan bagislama tablosunda bir patient_tc karsiliginda birden fazla kayit bulunabilir.
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_tc")
+
+    public Set<BloodDonationEntity> getBloodDonationEntities() {
+        return bloodDonationEntities;
+    }
+
+    public void setBloodDonationEntities(Set<BloodDonationEntity> bloodDonationEntities) {
+        this.bloodDonationEntities = bloodDonationEntities;
     }
 }
