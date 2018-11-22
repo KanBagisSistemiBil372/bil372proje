@@ -217,19 +217,28 @@
 <div class="jumbotron text-center">
     <h1>Giris Yap</h1>
     <p>E-mail adresinizi ve sifrenizi giriniz:</p>
-    <form>
+    <font color="white">${errorMessage}</font>
+    <form method="post">
         <div class="input-group">
-            <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+            <input name = "name" type="email" class="form-control" size="50" placeholder="Email Address" required>
             <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <div class="input-group-btn">
-                <button name="login" type="submit" class="btn btn-danger">Giris yap</button>
-                <button onclick="window.location.href='/register'" type="button" class="btn btn-danger btn-block">Uye ol</button>
-
-            </div>
+            <input type="submit" value=" Giris Yap" class=" btn btn-danger "/>
+            <button onclick="window.location.href='/register'" type="button" class="btn btn-danger">Uye ol</button>
         </div>
     </form>
 </div>
-
+<!--
+<div class="jumbotron text-center">
+    <h1>Giris Yap</h1>
+    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
+    <font color="white">${errorMessage}</font>
+    <form method="post">
+        E-mail : <input type="email" name="name" />
+        Password : <input type="password" name="password" />
+        <input type="submit" />
+    </form>
+</div>
+-->
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
     <div class="row">

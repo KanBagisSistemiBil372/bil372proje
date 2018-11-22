@@ -16,6 +16,16 @@ public class UserEntity {
     private PatientEntity patient_tc;
     private DonorEntity donor_tc;
 
+    public UserEntity(Long tc_no,String name, String surname,String phone,String e_mail,String password,String blood_type,String user_type){
+        this.tc_no = tc_no;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.e_mail = e_mail;
+        this.password = password;
+        this.blood_type = blood_type;
+        this.user_type = user_type;
+    }
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
     public PatientEntity getPatient() {
         return patient_tc;

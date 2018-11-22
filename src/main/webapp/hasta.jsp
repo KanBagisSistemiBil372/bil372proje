@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,36 +191,37 @@
         }
     </style>
 </head>
+Welcome ${name}!!.
+</body>
+<h2>Acil Kan Ihtiyaclari</h2>
+<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-
-<div class="jumbotron text-center">
-    <h1>Uye ol</h1>
-    <p>Asagidaki bilgileri giriniz:</p>
-    <font color="white">${errorMessage}</font>
-    <font color="white">${name}</font>
-    <font color="white">${password}</font>
-    <form method="post">
-        <div class="input-group">
-            <input type="text" name="name" id="isim" class="form-control" size="50" placeholder="Isim" required>
-            <input type="text" name="surname" class="form-control" size="50" placeholder="Soyisim" required>
-            <input type="text" name="tc_id" class="form-control" size="50" placeholder="Tc Kimlik Numarasi" required>
-            <input type="text" name="phone" class="form-control" size="50" placeholder="Telefon numarasi" required>
-            <input type="text" name="blood_type" class="form-control" size="50" placeholder="Kan grubu" required>
-            <input type="email" name="email" class="form-control" size="50" placeholder="Email Adresi" required>
-            <input name="password" type="password" class="form-control" placeholder="Sifre"/>
-            <div class="radio">
-                <label><input type="radio" name="user_type" checked>Hasta</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="user_type">Bagisci</label>
-            </div>
-            <div class="input-group-btn">
-                <button type="submit" class="btn btn-danger btn-block">Onayla</button>
-            </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <h4>A+ Tobb Etu Hastanesi<br><span>Iletisim:0312 275 7764</span></h4>
         </div>
-    </form>
+        <div class="item">
+            <h4>O- Gazi Hastanesi<br><span>Iletisim: 0312 352 6589</span></h4>
+        </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 </html>
-
-
