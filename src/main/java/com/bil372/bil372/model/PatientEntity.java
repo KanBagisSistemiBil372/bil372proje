@@ -63,7 +63,6 @@ public class PatientEntity implements Serializable {
     //Kan bagislama tablosunda bir patient_tc karsiliginda birden fazla kayit bulunabilir.
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_tc")
-
     public Set<BloodDonationEntity> getBloodDonationEntities() {
         return bloodDonationEntities;
     }

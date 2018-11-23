@@ -204,7 +204,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#kan_iste">KAN ISTE</a></li>
                 <li><a href="#services">SERVICES</a></li>
                 <li><a href="#portfolio">PORTFOLIO</a></li>
                 <li><a href="#pricing">PRICING</a></li>
@@ -215,41 +215,106 @@
 </nav>
 
 <div class="jumbotron text-center">
-    <h1>Giris Yap</h1>
-    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
-    <font color="white">${errorMessage}</font>
-    <form method="post">
+    <h1>Company</h1>
+    <form>
         <div class="input-group">
-            <input name = "name" type="email" class="form-control" size="50" placeholder="Email Address" required>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <input type="submit" value=" Giris Yap" class=" btn btn-danger "/>
-            <button onclick="window.location.href='/register'" type="button" class="btn btn-danger">Uye ol</button>
         </div>
     </form>
 </div>
-<!--
-<div class="jumbotron text-center">
-    <h1>Giris Yap</h1>
-    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
-    <font color="white">${errorMessage}</font>
-    <form method="post">
-        E-mail : <input type="email" name="name" />
-        Password : <input type="password" name="password" />
-        <input type="submit" />
-    </form>
-</div>
--->
-<!-- Container (About Section) -->
-<div id="about" class="container-fluid">
+
+<!-- Container (Kan Iste Section) -->
+<div id="kaniste" class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
-            <h2>About Company Page</h2><br>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <br><button class="btn btn-default btn-lg">Get in Touch</button>
+            <h2>Kan Iste</h2><br>
+            <h4></h4><br>
+            <p>Kan talebi icin hastane ismi, hastane lokasyonu ve miktar(unite cinsinden) seciniz.</p>
+            <div class="custom-select" style="width:2000px;">
+                <select>
+                    <option value="0">Hastane</option>
+                    <option value="1">Ankara Ataturk Egitim ve Arastirma Hastanesi</option>
+                    <option value="2">Ankara Diskapi Cocuk Hastaliklari Egitim ve Arastirma Hastanesi</option>
+                    <option value="3">Ankara Diskapi Yildirim Beyazit Egitim ve Arastirma Hastanesi</option>
+                    <option value="4">Ankara Egitim ve Arastirma Hastanesi</option>
+                    <option value="5">Ankara Etlik Ihtisas Hastanesi</option>
+                    <option value="6">Ankara Fizik Tedavi ve Rehabilitasyon Egitim ve Arastirma Hastanesi	</option>
+                    <option value="7">Ankara Gazi Mustafa Kemal Devlet Hastanesi</option>
+                    <option value="8">Ataturk Gogus Hastaliklari ve Gogus Cerrahisi Egitim ve Arastirma Hastanesi</option>
+                    <option value="9">Ankara Meslek Hastaliklari Hastanesi</option>
+                    <option value="10">Ankara Numune Egitim ve Arastirma Hastanesi</option>
+                    <option value="11">Ankara Universitesi Tip Fakultesi Hastanesi</option>
+                    <option value="12">Ankara Universitesi Tip Fakultesi Cebeci Arastirma ve Uygulama Hastanesi</option>
+                    <option value="13">Ankara Universitesi Tip Fakultesi Ibni Sina Arastirma ve Uygulama Hastanesi</option>
+                    <option value="14">Ankara Ulucanlar Goz Egitim ve Arastirma Hastanesi</option>
+                    <option value="15">Ankara Ulus Devlet Hastanesi</option>
+                    <option value="16">Ankara Verem Savas Dernegi Hastanesi</option>
+                    <option value="17">Ankara Yenimahalle Yildirim Beyazit Egitim ve Arastirma Hastanesi</option>
+                    <option value="18">Ankara 29 Mayis Devlet Hastanesi</option>
+                    <option value="19">Akyurt Devlet Hastanesi</option>
+                    <option value="20">Ayas Devlet Hastanesi</option>
+                    <option value="21">Baskent Universitesi Ankara Hastanesi</option>
+                    <option value="22">Beypazari Devlet Hastanesi</option>
+                    <option value="23">Büyüksehir Belediye Hastanesi</option>
+                    <option value="24">Deri ve Zuhrevi Hastaliklari Hastanesi</option>
+                    <option value="25">Dr. Abdurrahman Yurtaslan Ankara Onkoloji Egitim ve Araştirma Hastanesi</option>
+                    <option value="26">Dr. Hulusi Alatas Elmadag Devlet Hastanesi</option>
+                    <option value="27">Etimesgut Devlet Hastanesi</option>
+                    <option value="28">Gazi Universitesi Tip Fakultesi Hastanesi</option>
+                    <option value="29">Gazi Universitesi Tip Fakultesi Golbasi Hastanesi</option>
+                    <option value="30">Hacettepe Universitesi Tip Fakultesi Hastanesi</option>
+                    <option value="31">Hacettepe Universitesi Ihsan Dogramaci Cocuk Hastanesi</option>
+                    <option value="32">Kecioren Egitim ve Arastirma Hastanesi</option>
+                    <option value="33">Ufuk Universitesi Dr. Ridvan Ege Hastanesi</option>
+                </select>
+            </div>
+            <div class="custom-select" style="width:2000px;">
+                <select>
+                    <option value="0">Ilce</option>
+                    <option value="1">Akyurt</option>
+                    <option value="2">Altindag</option>
+                    <option value="3">Ayas</option>
+                    <option value="4">Bala</option>
+                    <option value="5">Beypazari</option>
+                    <option value="6">Camlidere</option>
+                    <option value="7">Cankaya</option>
+                    <option value="8">Cubuk</option>
+                    <option value="9">Elmadag</option>
+                    <option value="10">Etimesgut</option>
+                    <option value="11">Evren</option>
+                    <option value="12">Golbasi</option>
+                    <option value="13">Gudul</option>
+                    <option value="14">Haymana</option>
+                    <option value="15">Kalecik</option>
+                    <option value="16">Kazan</option>
+                    <option value="17">Kecioren</option>
+                    <option value="18">Kizilcahamam</option>
+                    <option value="19">Gudul</option>
+                    <option value="20">Mamak</option>
+                    <option value="21">Nallihan</option>
+                    <option value="22">Polatli</option>
+                    <option value="23">Pursaklar</option>
+                    <option value="24">Sincan</option>
+                    <option value="25">Sereflikochisar</option>
+                    <option value="26">Yenimahalle</option>
+
+                </select>
+            </div>
+            <div class="custom-select" style="width:2000px;">
+                <select>
+                    <option value="0 Unite">Miktar</option>
+                    <option value="1 Unite">1</option>
+                    <option value="2 Unite">2</option>
+                    <option value="3 Unite">3</option>
+                    <option value="4 Unite">4</option>
+                    <option value="5 Unite">5</option>
+                    <option value="6 Unite">6</option>
+                    <option value="7 Unite">7</option>
+                </select>
+            </div>
+            <br><button class="btn btn-default btn-lg">Istek Gonder</button>
         </div>
         <div class="col-sm-4">
-            <span class="glyphicon glyphicon-signal logo"></span>
+
         </div>
     </div>
 </div>
@@ -269,7 +334,7 @@
 </div>
 
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
+<div id="kantakibi" class="container-fluid text-center">
     <h2>SERVICES</h2>
     <h4>What we offer</h4>
     <br>
@@ -372,6 +437,73 @@
     </div>
 </div>
 
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+    <div class="text-center">
+        <h2>Pricing</h2>
+        <h4>Choose a payment plan that works for you</h4>
+    </div>
+    <div class="row slideanim">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Basic</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>20</strong> Lorem</p>
+                    <p><strong>15</strong> Ipsum</p>
+                    <p><strong>5</strong> Dolor</p>
+                    <p><strong>2</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$19</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Pro</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>50</strong> Lorem</p>
+                    <p><strong>25</strong> Ipsum</p>
+                    <p><strong>10</strong> Dolor</p>
+                    <p><strong>5</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$29</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Premium</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>100</strong> Lorem</p>
+                    <p><strong>50</strong> Ipsum</p>
+                    <p><strong>25</strong> Dolor</p>
+                    <p><strong>10</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$49</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
     <h2 class="text-center">CONTACT</h2>
@@ -419,21 +551,26 @@
             if (this.hash !== "") {
                 // Prevent default anchor click behavior
                 event.preventDefault();
+
                 // Store hash
                 var hash = this.hash;
+
                 // Using jQuery's animate() method to add smooth page scroll
                 // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
                 $('html, body').animate({
                     scrollTop: $(hash).offset().top
                 }, 900, function(){
+
                     // Add hash (#) to URL when done scrolling (default click behavior)
                     window.location.hash = hash;
                 });
             } // End if
         });
+
         $(window).scroll(function() {
             $(".slideanim").each(function(){
                 var pos = $(this).offset().top;
+
                 var winTop = $(window).scrollTop();
                 if (pos < winTop + 600) {
                     $(this).addClass("slide");
