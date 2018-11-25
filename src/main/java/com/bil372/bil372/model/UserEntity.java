@@ -5,21 +5,58 @@ import javax.persistence.*;
 @Entity
 @Table(name = "userentity")
 public class UserEntity {
-    private Long tc_no;
+    private Long id;
     private String name;
     private String surname;
     private String phone;
-    private String e_mail;
     private String username;
     private String password;
-    private String blood_type;
-    private String user_type;
+    private String bloodtype;
+    private String usertype;
+    private PatientEntity patientId;
+    private DonorEntity donorId;
+
+    public UserEntity() {
+    }
+
+    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String bloodtype, String usertype) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.bloodtype = bloodtype;
+        this.usertype = usertype;
+    }
+    
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    public PatientEntity getPatient() {
+        return patientId;
+    }
+
+    public void setPatient(PatientEntity patient) {
+        this.patientId = patient;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
+    public DonorEntity getDonorId() {
+        return donorId;
+    }
+
+    public void setDonorId(DonorEntity donorId) {
+        this.donorId = donorId;
+    }
 
     @Id
-    @Column(name = "tc_no", columnDefinition = "serial",  nullable=false)
+    @Column(name = "id", columnDefinition = "serial",  nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getTc_no() {
-        return tc_no;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,14 +83,6 @@ public class UserEntity {
         this.phone = phone;
     }
 
-    public String getE_mail() {
-        return e_mail;
-    }
-
-    public void setE_mail(String e_mail) {
-        this.e_mail = e_mail;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -70,24 +99,21 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getBlood_type() {
-        return blood_type;
+    public String getBloodtype() {
+        return bloodtype;
     }
 
-    public void setBlood_type(String blood_type) {
-        this.blood_type = blood_type;
+    public void setBloodtype(String bloodtype) {
+        this.bloodtype = bloodtype;
     }
 
-    public String getUser_type() {
-        return user_type;
+    public String getUsertype() {
+        return usertype;
     }
 
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
     }
 
-    public void setTc_no(Long tc_no) {
-        this.tc_no = tc_no;
-    }
 
 }

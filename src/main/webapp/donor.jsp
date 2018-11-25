@@ -215,30 +215,18 @@
 </nav>
 
 <div class="jumbotron text-center">
-    <h1>Giris Yap</h1>
-    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
-    <font color="white">${errorMessage}</font>
-    <form method="post">
+    <h1>Company</h1>
+    <p>Bagisci sayfasina hosgeldin ${name}</p>
+    <form>
         <div class="input-group">
-            <input name = "name" type="email" class="form-control" size="50" placeholder="Email Address" required>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <input type="submit" value=" Giris Yap" class=" btn btn-danger "/>
-            <button onclick="window.location.href='/register'" type="button" class="btn btn-danger">Uye ol</button>
+            <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-danger">Subscribe</button>
+            </div>
         </div>
     </form>
 </div>
-<!--
-<div class="jumbotron text-center">
-    <h1>Giris Yap</h1>
-    <p>E-mail adresinizi ve sifrenizi giriniz:</p>
-    <font color="white">${errorMessage}</font>
-    <form method="post">
-        E-mail : <input type="email" name="name" />
-        Password : <input type="password" name="password" />
-        <input type="submit" />
-    </form>
-</div>
--->
+
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
     <div class="row">
@@ -369,6 +357,73 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+    <div class="text-center">
+        <h2>Pricing</h2>
+        <h4>Choose a payment plan that works for you</h4>
+    </div>
+    <div class="row slideanim">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Basic</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>20</strong> Lorem</p>
+                    <p><strong>15</strong> Ipsum</p>
+                    <p><strong>5</strong> Dolor</p>
+                    <p><strong>2</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$19</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Pro</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>50</strong> Lorem</p>
+                    <p><strong>25</strong> Ipsum</p>
+                    <p><strong>10</strong> Dolor</p>
+                    <p><strong>5</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$29</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Premium</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>100</strong> Lorem</p>
+                    <p><strong>50</strong> Ipsum</p>
+                    <p><strong>25</strong> Dolor</p>
+                    <p><strong>10</strong> Sit</p>
+                    <p><strong>Endless</strong> Amet</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>$49</h3>
+                    <h4>per month</h4>
+                    <button class="btn btn-lg">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
