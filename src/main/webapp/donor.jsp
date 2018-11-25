@@ -216,7 +216,7 @@
 
 <div class="jumbotron text-center">
     <h1>Company</h1>
-    <p>Bagisci sayfasina hosgeldiniz</p>
+    <p>Bagisci sayfasina hosgeldin ${name}</p>
     <form>
         <div class="input-group">
             <input type="email" class="form-control" size="50" placeholder="Email Address" required>

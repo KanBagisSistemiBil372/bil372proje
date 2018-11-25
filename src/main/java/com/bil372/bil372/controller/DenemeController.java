@@ -68,8 +68,8 @@ public class DenemeController {
         model.put("password", password);
         userRepository.save(user);
         // htmlde belirtmek gerektiği için hata veriyor.
-        //return "redirect:/homepage";
-        return "homepage";
+        return "redirect:/";
+        //return "homepage";
     }
 
 }

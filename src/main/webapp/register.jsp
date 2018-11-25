@@ -198,7 +198,7 @@
     <font color="white">${errorMessage}</font>
     <font color="white">${name}</font>
     <font color="white">${password}</font>
-    <form method="post">
+    <form method="post" >
         <div class="input-group">
             <input type="text" name="name" id="isim" class="form-control" size="50" placeholder="Isim" required>
             <input type="text" name="surname" class="form-control" size="50" placeholder="Soyisim" required>

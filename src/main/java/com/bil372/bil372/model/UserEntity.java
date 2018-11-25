@@ -29,17 +29,7 @@ public class UserEntity {
         this.bloodtype = bloodtype;
         this.usertype = usertype;
     }
-
-    public UserEntity(Long tc_no,String name, String surname,String phone,String e_mail,String password,String blood_type,String user_type){
-        this.tc_no = tc_no;
-        this.name = name;
-        this.surname = surname;
-        this.phone = phone;
-        this.e_mail = e_mail;
-        this.password = password;
-        this.blood_type = blood_type;
-        this.user_type = user_type;
-    }
+    
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
     public PatientEntity getPatient() {
         return patientId;
