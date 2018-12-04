@@ -1,6 +1,9 @@
 package com.bil372.bil372.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "userentity")
@@ -11,6 +14,9 @@ public class UserEntity {
     private String phone;
     private String username;
     private String password;
+    private String passwordConfirm;
+    private String role;
+    private Set<RoleEntity> roles;
     private String bloodtype;
     private String usertype;
     private PatientEntity patientId;
@@ -29,7 +35,7 @@ public class UserEntity {
         this.bloodtype = bloodtype;
         this.usertype = usertype;
     }
-    
+
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
     public PatientEntity getPatient() {
         return patientId;
@@ -49,7 +55,7 @@ public class UserEntity {
     }
 
     @Id
-    @Column(name = "id", columnDefinition = "serial",  nullable=false)
+    @Column(name = "id", columnDefinition = "serial", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
@@ -113,6 +119,26 @@ public class UserEntity {
 
     public void setUsertype(String usertype) {
         this.usertype = usertype;
+    }
+
+    @Transient
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    @JsonBackReference
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
     }
 
 

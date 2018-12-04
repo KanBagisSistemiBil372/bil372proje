@@ -17,11 +17,17 @@ public class DenemeController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("/")
-    public String welcome() {
-        //System.out.println(userRepository.findByUsername("merveakinci@gmail.com").getPassword());
+    @RequestMapping("/donor")
+    public String donorpage() {
         return "homepage";
     }
+
+    @RequestMapping("/hasta")
+    public String hastapage() {
+        return "homepage";
+    }
+
+
     /*
         @RequestMapping(value = "/login", method = RequestMethod.GET)
         public String login(Model model, String error, String logout) {
@@ -35,7 +41,7 @@ public class DenemeController {
     // Login Validation
     @RequestMapping( value="/",method = RequestMethod.POST)
     public String loginValidation(ModelMap model, @RequestParam String name, @RequestParam String password){
-
+        /*
         String realPassword = userRepository.findByUsername(name).getPassword();
         String userType = userRepository.findByUsername(name).getUsertype();
         //System.out.println("gercek sifre: " + realPassword + " siteden alinan: "+ password);
@@ -53,23 +59,10 @@ public class DenemeController {
         else {
             model.put("errorMessage", "Your username and password is invalid.");
             return "homepage";
-        }
+        }*/
+        return "homepage";
     }
 
-    @RequestMapping("/register")
-    public String register(){return "register";}
 
-    @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String registrationValidation(ModelMap model, @RequestParam String name, @RequestParam String surname,@RequestParam String tc_id,@RequestParam String phone,@RequestParam String blood_type,@RequestParam String email,@RequestParam String password,@RequestParam String user_type){
-        //System.out.println(name,surname,hasta_mi,bagisci_mi);
-        //model.put("errorMessage", "Hesabiniz basarili bir sekilde olusturuldu.");
-        UserEntity user = new UserEntity(Long.parseLong(tc_id),name,surname,phone,email,password,blood_type,user_type);
-        model.put("name",name);
-        model.put("password", password);
-        userRepository.save(user);
-        // htmlde belirtmek gerektiği için hata veriyor.
-        return "redirect:/";
-        //return "homepage";
-    }
 
 }
