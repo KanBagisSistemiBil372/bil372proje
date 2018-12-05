@@ -1,6 +1,6 @@
 package com.bil372.bil372.controller;
 
-import com.bil372.bil372.service.UserService;
+import com.bil372.bil372.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userServiceImpl;
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
@@ -42,21 +43,22 @@ public class UserController {
 
         if (rol.equals("admin"))
             return "adminpage";
-        else {
-            return "hasta";
+        else if (rol.equals("hasta")) {
+            return "patient";
+        } else {
+            return "donor";
         }
     }
 
     @RequestMapping("/donor")
     public String donorpage() {
-        return "homepage";
+        return "donor";
     }
 
     @RequestMapping("/patient")
     public String patientpage() {
-        return "homepage";
+        return "patient";
     }
-
 
 
 }
