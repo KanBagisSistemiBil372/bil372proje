@@ -1,19 +1,15 @@
 package com.bil372.bil372.controller;
 
-import com.bil372.bil372.model.UserEntity;
 import com.bil372.bil372.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class UserController {
@@ -51,27 +47,16 @@ public class UserController {
         }
     }
 
-    //Uye Ol butonuna tiklandiginda kod bu metoda giriyor ve register.jsp sayfası return ediliyor.
-    @RequestMapping(value = "/register")
-    public String register() {
-        return "register";
+    @RequestMapping("/donor")
+    public String donorpage() {
+        return "homepage";
+    }
+
+    @RequestMapping("/patient")
+    public String patientpage() {
+        return "homepage";
     }
 
 
-    @RequestMapping(value = "/aa", method = RequestMethod.POST)
-    public ResponseEntity<?> registrationValidation(@RequestParam (value ="name", required = true)  String name,
-                                                    @RequestParam (value ="surname", required = true) String surname,
-                                                    @RequestParam (value ="tc_id", required = true) String tc_id,
-                                                    @RequestParam (value ="phone", required = true)String phone,
-                                                    @RequestParam (value ="blood_type", required = true) String blood_type,
-                                                    @RequestParam (value ="username", required = true) String email,
-                                                    @RequestParam (value ="password", required = true) String password,
-                                                    @RequestParam (value ="patient") String patient,
-                                                    @RequestParam (value = "donor") String donor) {
-        String hashedPassword = PasswordHashing.hashPassword(password);
-        UserEntity user = new UserEntity(Long.parseLong(tc_id), name, surname, phone, email, hashedPassword, blood_type, "h");
-        userService.save(user);
-        return ResponseEntity.ok("1");
-    }
 
 }
