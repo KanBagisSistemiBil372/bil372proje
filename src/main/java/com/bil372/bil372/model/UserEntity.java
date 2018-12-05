@@ -18,45 +18,33 @@ public class UserEntity {
     private String role;
     private Set<RoleEntity> roles;
     private String bloodtype;
-    private String usertype;
-    private PatientEntity patientId;
-    private DonorEntity donorId;
+    private String hospital_name;
+    private String hospital_location;
+    private Long amount_of_need;
+    private Set<BloodBankEntity> bloodBankEntities;
+    private Set<BloodDonationEntity> bloodDonationEntities;
 
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String bloodtype, String usertype) {
+    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String passwordConfirm, String role, Set<RoleEntity> roles, String bloodtype, String hospital_name, String hospital_location, Long amount_of_need) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.username = username;
         this.password = password;
+        this.passwordConfirm = passwordConfirm;
+        this.role = role;
+        this.roles = roles;
         this.bloodtype = bloodtype;
-        this.usertype = usertype;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
-    public PatientEntity getPatient() {
-        return patientId;
-    }
-
-    public void setPatient(PatientEntity patient) {
-        this.patientId = patient;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userEntity")
-    public DonorEntity getDonorId() {
-        return donorId;
-    }
-
-    public void setDonorId(DonorEntity donorId) {
-        this.donorId = donorId;
+        this.hospital_name = hospital_name;
+        this.hospital_location = hospital_location;
+        this.amount_of_need = amount_of_need;
     }
 
     @Id
     @Column(name = "id", columnDefinition = "serial", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -113,12 +101,36 @@ public class UserEntity {
         this.bloodtype = bloodtype;
     }
 
-    public String getUsertype() {
-        return usertype;
+    public String getRole() {
+        return role;
     }
 
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getHospital_name() {
+        return hospital_name;
+    }
+
+    public void setHospital_name(String hospital_name) {
+        this.hospital_name = hospital_name;
+    }
+
+    public String getHospital_location() {
+        return hospital_location;
+    }
+
+    public void setHospital_location(String hospital_location) {
+        this.hospital_location = hospital_location;
+    }
+
+    public Long getAmount_of_need() {
+        return amount_of_need;
+    }
+
+    public void setAmount_of_need(Long amount_of_need) {
+        this.amount_of_need = amount_of_need;
     }
 
     @Transient
@@ -140,6 +152,7 @@ public class UserEntity {
     public void setRoles(Set<RoleEntity> roles) {
         this.roles = roles;
     }
+
 
 
 }

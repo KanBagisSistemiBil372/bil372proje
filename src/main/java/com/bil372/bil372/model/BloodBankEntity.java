@@ -10,13 +10,34 @@ public class BloodBankEntity {
     private String blood_serial_no;
     private String blood_type;
     private Date date;
+    private UserEntity userEntityDonor;
+    private UserEntity userEntityPatient;
 
     @Id
     @Column(name = "blood_serial_no", columnDefinition = "serial", nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     public String getBlood_serial_no() {
         return blood_serial_no;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="donor_id")
+    public UserEntity getUserEntityDonor() {
+        return userEntityDonor;
+    }
+
+    public void setUserEntityDonor(UserEntity userEntityDonor) {
+        this.userEntityDonor = userEntityDonor;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="patient_id")
+    public UserEntity getUserEntityPatient() {
+        return userEntityPatient;
+    }
+
+    public void setUserEntityPatient(UserEntity userEntityPatient) {
+        this.userEntityPatient = userEntityPatient;
     }
 
     public void setBlood_serial_no(String blood_serial_no) {

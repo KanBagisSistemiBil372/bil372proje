@@ -9,6 +9,8 @@ public class BloodDonationEntity {
     private int donation_id;
     private int amount;
     private Date date;
+    private UserEntity userEntityDonor;
+    private UserEntity userEntityPatient;
 
     @Id
     @Column(name = "donation_id", columnDefinition = "serial", nullable=false)
@@ -36,6 +38,26 @@ public class BloodDonationEntity {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="donor_id")
+    public UserEntity getUserEntityDonor() {
+        return userEntityDonor;
+    }
+
+    public void setUserEntityDonor(UserEntity userEntityDonor) {
+        this.userEntityDonor = userEntityDonor;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="patient_id")
+    public UserEntity getUserEntityPatient() {
+        return userEntityPatient;
+    }
+
+    public void setUserEntityPatient(UserEntity userEntityPatient) {
+        this.userEntityPatient = userEntityPatient;
     }
 
 }
