@@ -36,21 +36,6 @@ public class UserController {
     public String deneme() {
         return "deneme";
     }
-    
-    @RequestMapping(value = {"/getpatients"}, method = RequestMethod.GET)
-    public ResponseEntity<?> getPatients() {
-        List<UserEntity> patients = userService.findByRole(2l);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Iterable<? extends GrantedAuthority> rols = auth.getAuthorities(); // Rolleri Döner
-
-        GrantedAuthority authority = rols.iterator().next();
-        String rol = authority.toString();
-
-        if (rol.equals("admin")) {
-            return new ResponseEntity<List<UserEntity>>(patients, HttpStatus.OK);
-        } else
-            return null;
-    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
@@ -111,6 +96,36 @@ public class UserController {
         userService.save(userForm);
         securityService.autologin(userForm.getUsername(), userForm.getPassword());
         return "redirect:/welcome";
+    }
+
+    @RequestMapping(value = {"/getpatients"}, method = RequestMethod.GET)
+    public ResponseEntity<?> getPatients() {
+        List<UserEntity> patients = userService.findByRole(2l);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Iterable<? extends GrantedAuthority> rols = auth.getAuthorities(); // Rolleri Döner
+
+        GrantedAuthority authority = rols.iterator().next();
+        String rol = authority.toString();
+
+        if (rol.equals("admin")) {
+            return new ResponseEntity<List<UserEntity>>(patients, HttpStatus.OK);
+        } else
+            return null;
+    }
+
+    @RequestMapping(value = {"/getdonors"}, method = RequestMethod.GET)
+    public ResponseEntity<?> getDonors() {
+        List<UserEntity> donors = userService.findByRole(3l);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Iterable<? extends GrantedAuthority> rols = auth.getAuthorities(); // Rolleri Döner
+
+        GrantedAuthority authority = rols.iterator().next();
+        String rol = authority.toString();
+
+        if (rol.equals("admin")) {
+            return new ResponseEntity<List<UserEntity>>(donors, HttpStatus.OK);
+        } else
+            return null;
     }
 
 }
