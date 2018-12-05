@@ -15,7 +15,7 @@ public class UserEntity {
     private String username;
     private String password;
     private String passwordConfirm;
-    private String role;
+    private Long role;
     private Set<RoleEntity> roles;
     private String bloodtype;
     private String hospital_name;
@@ -27,7 +27,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String passwordConfirm, String role, Set<RoleEntity> roles, String bloodtype, String hospital_name, String hospital_location, Long amount_of_need) {
+    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String passwordConfirm, Long role, Set<RoleEntity> roles, String bloodtype, String hospital_name, String hospital_location, Long amount_of_need) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -101,11 +101,11 @@ public class UserEntity {
         this.bloodtype = bloodtype;
     }
 
-    public String getRole() {
+    public Long getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Long role) {
         this.role = role;
     }
 

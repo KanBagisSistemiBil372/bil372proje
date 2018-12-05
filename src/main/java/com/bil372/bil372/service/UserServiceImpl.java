@@ -75,9 +75,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserEntity> findByRole(Long role) {
+        List<UserEntity> list = userRepository.findByRole(role);
+        return list;
+    }
+
+    @Override
     public List<RoleEntity> findAllRoles() {
         List<RoleEntity> list = roleRepository.findAll();
         return list;
     }
+
 
 }

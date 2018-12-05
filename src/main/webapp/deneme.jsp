@@ -17,21 +17,29 @@
 
 </body>
 <script>
-    var dataSet = [[]];
 
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/denemee",
+            url: "/getpatients",
             async: false,
             success: function (result) {
-                //console.log(result);
-                dataSet[0][0] = result.id;
-                dataSet[0][1] = result.name;
-                dataSet[0][2] = result.surname;
-                dataSet[0][3] = result.bloodtype;
-                dataSet[0][4] = result.phone;
-                dataSet[0][5] = result.hospital_location;
+                len = result.length;
+                patients = new Array(len);
+                for (var i = 0; i < len; i++) {
+                    patients[i] = new Array(8);
+                }
+
+                for (var i = 0; i < result.length; i++) {
+                    patients[i][0] = (result[i].id);
+                    patients[i][1] = (result[i].name);
+                    patients[i][2] = (result[i].surname);
+                    patients[i][3] = (result[i].phone);
+                    patients[i][4] = (result[i].bloodtype);
+                    patients[i][5] = (result[i].hospital_location);
+                    patients[i][6] = (result[i].hospital_name);
+                    patients[i][7] = (result[i].amount_of_need);
+                }
 
             },
             error: function (req, status, error) {
@@ -40,16 +48,16 @@
         });
 
         $('#example').DataTable({
-            data: dataSet,
+            data: patients,
             columns: [
                 {title: "T.C. Kimlik No"},
                 {title: "Adı"},
                 {title: "Soyadı"},
-                {title: "Kan Grubu"},
                 {title: "Telefonu"},
-                //{ title: "İhtiyaç Miktarı" },
-                //{ title: "Hastane Adı" },
-                {title: "Hastane Lokasyonu"}
+                {title: "Kan Grubu"},
+                {title: "Hastane Lokasyonu"},
+                {title: "Hastane Adı"},
+                {title: "İhtiyaç Miktarı"}
             ]
         });
     });

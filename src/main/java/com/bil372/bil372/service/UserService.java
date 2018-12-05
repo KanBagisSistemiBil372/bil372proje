@@ -13,6 +13,8 @@ public interface UserService {
 
     Optional<UserEntity> findById(Long id);
 
+    List<UserEntity> findByRole(Long role);
+
     List<UserEntity> findAll();
 
     List<RoleEntity> findAllRoles();

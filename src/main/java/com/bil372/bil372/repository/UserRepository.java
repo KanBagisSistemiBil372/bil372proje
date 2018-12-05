@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity save(UserEntity userEntity);
 
     List<UserEntity> findAll();
+
+    List<UserEntity> findByRole(Long role);
 }
