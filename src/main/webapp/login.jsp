@@ -251,7 +251,7 @@
 
                     <p class="pull-right">
                         <a href="/resetpassword" class="btn btn-link">Şifremi Unuttum</a>
-                        <a href="/register" class="btn btn-link">Üye Ol</a>
+                        <a href="/registration" class="btn btn-link">Üye Ol</a>
                         <button class="btn btn-lg btn-success btn-sm">Giriş Yap</button>
                     </p>
                 </div>
