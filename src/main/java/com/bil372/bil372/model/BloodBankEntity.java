@@ -15,6 +15,9 @@ public class BloodBankEntity {
     private UserEntity userEntityPatient;
     private boolean isDeleted;
 
+    public BloodBankEntity() {
+    }
+
     public BloodBankEntity(String blood_serial_no, String blood_type, Date date, UserEntity userEntityDonor, UserEntity userEntityPatient, boolean isDeleted) {
         this.blood_serial_no = blood_serial_no;
         this.blood_type = blood_type;

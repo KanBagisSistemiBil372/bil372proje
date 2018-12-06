@@ -1,6 +1,8 @@
 package com.bil372.bil372.controller;
 
+import com.bil372.bil372.model.BloodBankEntity;
 import com.bil372.bil372.model.UserEntity;
+import com.bil372.bil372.service.BloodBankService;
 import com.bil372.bil372.service.SecurityService;
 import com.bil372.bil372.service.UserService;
 import com.bil372.bil372.validator.UserValidator;
@@ -25,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BloodBankService bloodBankService;
 
     @Autowired
     private SecurityService securityService;
@@ -128,4 +133,18 @@ public class UserController {
             return null;
     }
 
+    @RequestMapping(value = {"/getbloodbankentities"}, method = RequestMethod.GET)
+    public ResponseEntity<?> getBloodBankEntities() {
+        List<BloodBankEntity> bloodBankEntities = bloodBankService.findAll();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Iterable<? extends GrantedAuthority> rols = auth.getAuthorities(); // Rolleri Döner
+
+        GrantedAuthority authority = rols.iterator().next();
+        String rol = authority.toString();
+
+        if (rol.equals("admin")) {
+            return new ResponseEntity<List<BloodBankEntity>>(bloodBankEntities, HttpStatus.OK);
+        } else
+            return null;
+    }
 }

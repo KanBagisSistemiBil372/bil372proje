@@ -12,6 +12,9 @@ public class BloodDonationEntity {
     private UserEntity userEntityDonor;
     private UserEntity userEntityPatient;
 
+    public BloodDonationEntity() {
+    }
+
     public BloodDonationEntity(int donation_id, int amount, Date date, UserEntity userEntityDonor, UserEntity userEntityPatient) {
         this.donation_id = donation_id;
         this.amount = amount;
