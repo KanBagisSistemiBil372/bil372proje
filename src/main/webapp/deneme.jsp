@@ -7,110 +7,75 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.7/css/select.bootstrap.min.css">
-    <link rel="stylesheet" href="../../extensions/Editor/css/editor.bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
-    <script src="../../extensions/Editor/js/dataTables.editor.min.js"></script>
-    <script src="../../extensions/Editor/js/editor.bootstrap.min.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="bootstable.js" ></script>
 
 </head>
 <body>
-<%= "Hello World!" %>
-
-<table id="example" class="table table-striped table-bordered" style="width:100%">
+<table class="table" id="makeEditable">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Extn.</th>
-        <th>Start date</th>
-        <th>Salary</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email </th>
     </tr>
     </thead>
-    <tfoot>
+    <tbody>
     <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Extn.</th>
-        <th>Start date</th>
-        <th>Salary</th>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
     </tr>
-    </tfoot>
+    <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+    </tr>
+    <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+    </tr>
+    <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+    </tr>
+    <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+    </tr>
+    <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+    </tr>
+    </tbody>
 </table>
 
+<span>
+  <button id="but_add">Add New Row</button>
+</span>
 </body>
 
 <script>
-    var editor; // use a global for the submit and return data rendering in the examples
 
-    $(document).ready(function() {
-        editor = new $.fn.dataTable.Editor( {
-            ajax: "../php/staff.php",
-            table: "#example",
-            fields: [ {
-                label: "First name:",
-                name: "first_name"
-            }, {
-                label: "Last name:",
-                name: "last_name"
-            }, {
-                label: "Position:",
-                name: "position"
-            }, {
-                label: "Office:",
-                name: "office"
-            }, {
-                label: "Extension:",
-                name: "extn"
-            }, {
-                label: "Start date:",
-                name: "start_date",
-                type: 'datetime'
-            }, {
-                label: "Salary:",
-                name: "salary"
-            }
-            ]
-        } );
+    $('#makeEditable').SetEditable({
+        $addButton: $('#but_add'),
+        columnsEd: null,  // Ex.: "1,2,3,4,5"
+        onEdit: function() {},
+        onDelete: function() {},
+        onBeforeDelete: function() {},
+        onAdd: function() {}
+    });
 
-        var table = $('#example').DataTable( {
-            lengthChange: false,
-            ajax: "../php/staff.php",
-            columns: [
-                { data: null, render: function ( data, type, row ) {
-                        // Combine the first and last names into a single table field
-                        return data.first_name+' '+data.last_name;
-                    } },
-                { data: "position" },
-                { data: "office" },
-                { data: "extn" },
-                { data: "start_date" },
-                { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-            ],
-            select: true
-        } );
-
-        // Display the buttons
-        new $.fn.dataTable.Buttons( table, [
-            { extend: "create", editor: editor },
-            { extend: "edit",   editor: editor },
-            { extend: "remove", editor: editor }
-        ] );
-
-        table.buttons().container()
-            .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
-    } );
 </script>
 
 </html>

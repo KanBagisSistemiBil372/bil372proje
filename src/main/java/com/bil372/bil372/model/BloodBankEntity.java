@@ -1,6 +1,7 @@
 package com.bil372.bil372.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
@@ -12,6 +13,16 @@ public class BloodBankEntity {
     private Date date;
     private UserEntity userEntityDonor;
     private UserEntity userEntityPatient;
+    private boolean isDeleted;
+
+    public BloodBankEntity(String blood_serial_no, String blood_type, Date date, UserEntity userEntityDonor, UserEntity userEntityPatient, boolean isDeleted) {
+        this.blood_serial_no = blood_serial_no;
+        this.blood_type = blood_type;
+        this.date = date;
+        this.userEntityDonor = userEntityDonor;
+        this.userEntityPatient = userEntityPatient;
+        this.isDeleted = isDeleted;
+    }
 
     @Id
     @Column(name = "blood_serial_no", columnDefinition = "serial", nullable=false)
@@ -58,5 +69,14 @@ public class BloodBankEntity {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @NotNull
+    public boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
     }
 }

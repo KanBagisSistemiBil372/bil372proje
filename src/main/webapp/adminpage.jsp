@@ -331,7 +331,7 @@
                 {title: "Lokasyon"},
             ]
         });
-        
+
     })
 
 </script>
