@@ -251,7 +251,6 @@
 
 <script>
     $(document).ready(function(){
-
         $.ajax({
             type: "GET",
             url: "/getpatients",

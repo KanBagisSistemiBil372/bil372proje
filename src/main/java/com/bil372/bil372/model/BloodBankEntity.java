@@ -14,6 +14,8 @@ public class BloodBankEntity {
     private UserEntity userEntityDonor;
     private UserEntity userEntityPatient;
     private boolean isDeleted;
+    private Long patient_id;
+
 
     public BloodBankEntity() {
     }
@@ -44,16 +46,6 @@ public class BloodBankEntity {
         this.userEntityDonor = userEntityDonor;
     }
 
-    @ManyToOne
-    @JoinColumn(name="patient_id")
-    public UserEntity getUserEntityPatient() {
-        return userEntityPatient;
-    }
-
-    public void setUserEntityPatient(UserEntity userEntityPatient) {
-        this.userEntityPatient = userEntityPatient;
-    }
-
     public void setBlood_serial_no(String blood_serial_no) {
         this.blood_serial_no = blood_serial_no;
     }
@@ -81,5 +73,13 @@ public class BloodBankEntity {
 
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public Long getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(Long patient_id) {
+        this.patient_id = patient_id;
     }
 }

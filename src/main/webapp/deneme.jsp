@@ -27,28 +27,8 @@
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-<div id="jquery-script-menu">
-    <div class="jquery-script-center">
-        <ul>
-        </ul>
-        <div class="jquery-script-ads">
-            <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-2783044520727903";
-            /* jQuery_demo */
-            google_ad_slot = "2780937993";
-            google_ad_width = 728;
-            google_ad_height = 90;
-            //-->
-            </script>
-            <script type="text/javascript"
-                    src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
-        </div>
-        <div class="jquery-script-clear"></div>
-    </div>
-</div>
 <div id="app" style="margin:150px auto">
-
+    <h1>Hoş Geldin ${pageContext.request.userPrincipal.name}</h1>
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
@@ -123,7 +103,7 @@
 
 
                     <div class="card" style="width: 100%">
-                        <div class="card-header">Sistemdeki Bağışçılar</div>
+                        <div class="card-header">Kan Bankası Kayıtları</div>
                         <div class="card-body">
 
                             <button class="btn btn-primary" id="submit_data3">Submit</button>
@@ -337,6 +317,19 @@
             }
 
         });
+
+        var table = document.getElementById('makeEditable');
+        n = table.rows.length;
+        for (var r = 0; r < n; r++) {
+            m = table.rows[r].cells.length;
+            for (var c = 0;  c < m; c++) {
+                //alert(table.rows[r].cells[c].innerHTML);
+
+            }
+        }
+
+
+
 
     });
 

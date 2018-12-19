@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface UserService {
 
 
-    UserEntity findByUsername(String usarname);
+    UserEntity findByUsername(String username);
 
     Optional<UserEntity> findById(Long id);
 

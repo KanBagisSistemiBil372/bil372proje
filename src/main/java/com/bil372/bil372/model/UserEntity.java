@@ -3,6 +3,7 @@ package com.bil372.bil372.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
@@ -17,7 +18,7 @@ public class UserEntity {
     private String passwordConfirm;
     private Long role;
     private Set<RoleEntity> roles;
-    private String bloodtype;
+    private String blood_type;
     private String hospital_name;
     private String hospital_location;
     private Long amount_of_need;
@@ -27,20 +28,15 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String name, String surname, String phone, String username, String password, String passwordConfirm, Long role, Set<RoleEntity> roles, String bloodtype, String hospital_name, String hospital_location, Long amount_of_need) {
+    public UserEntity(Long id, String name, String surname, String phone, String username, String password, Long role, String blood_type) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.username = username;
         this.password = password;
-        this.passwordConfirm = passwordConfirm;
         this.role = role;
-        this.roles = roles;
-        this.bloodtype = bloodtype;
-        this.hospital_name = hospital_name;
-        this.hospital_location = hospital_location;
-        this.amount_of_need = amount_of_need;
+        this.blood_type = blood_type;
     }
 
     @Id
@@ -53,6 +49,7 @@ public class UserEntity {
         this.id = id;
     }
 
+    @NotNull
     public String getName() {
         return name;
     }
@@ -61,6 +58,7 @@ public class UserEntity {
         this.name = name;
     }
 
+    @NotNull
     public String getSurname() {
         return surname;
     }
@@ -69,6 +67,7 @@ public class UserEntity {
         this.surname = surname;
     }
 
+    @NotNull
     public String getPhone() {
         return phone;
     }
@@ -77,6 +76,7 @@ public class UserEntity {
         this.phone = phone;
     }
 
+    @NotNull
     public String getUsername() {
         return username;
     }
@@ -85,6 +85,7 @@ public class UserEntity {
         this.username = username;
     }
 
+    @NotNull
     public String getPassword() {
         return password;
     }
@@ -93,14 +94,8 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getBloodtype() {
-        return bloodtype;
-    }
 
-    public void setBloodtype(String bloodtype) {
-        this.bloodtype = bloodtype;
-    }
-
+    @NotNull
     public Long getRole() {
         return role;
     }
@@ -153,6 +148,11 @@ public class UserEntity {
         this.roles = roles;
     }
 
+    public String getBlood_type() {
+        return blood_type;
+    }
 
-
+    public void setBlood_type(String blood_type) {
+        this.blood_type = blood_type;
+    }
 }
